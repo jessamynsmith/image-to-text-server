@@ -41,7 +41,7 @@ Make a new Heroku app, and add the following addons:
 
 Add Heroku buildpacks:
 
-    heroku buildpacks:set https://github.com/jessamynsmith/heroku-buildpack-apt -i 1
+    heroku buildpacks:set https://github.com/duanehutchins/heroku-buildpack-apt -i 1
     heroku buildpacks:set heroku/python -i 2
     
     
