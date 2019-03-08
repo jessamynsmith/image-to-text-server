@@ -31,4 +31,15 @@ Test API
     curl -X POST -F 'data=@path/to/local/file' http://127.0.0.1:8000/api/v1/ocr/
     
     
-    
+### Deployment
+
+This project is already set up for deployment to Heroku.
+
+Make a new Heroku app, and add the following addons:
+
+    Heroku Postgres
+
+Add Heroku buildpacks:
+
+    heroku buildpacks:set heroku/python -i 1
+    heroku buildpacks:set https://github.com/matteotiziano/heroku-buildpack-tesseract -i 2
