@@ -43,4 +43,6 @@ Add Heroku buildpacks:
 
     heroku buildpacks:set https://github.com/jessamynsmith/heroku-buildpack-apt -i 1
     heroku buildpacks:set heroku/python -i 2
+    
+    
     heroku buildpacks:set https://github.com/matteotiziano/heroku-buildpack-tesseract.git -i 3

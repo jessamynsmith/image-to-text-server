@@ -1,1 +1,3 @@
-libpng12-dev    
+libpng-dev
+libtesseract-dev
+libleptonica-dev
