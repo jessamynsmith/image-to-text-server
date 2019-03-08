@@ -3,10 +3,10 @@ from rest_framework.parsers import FileUploadParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ocr.utils import extract_text_from_image
+from ocr.utils import extract_text_from_image, extract_text_from_image_url
 
 
-class OcrView(APIView):
+class OcrDataView(APIView):
     parser_class = (FileUploadParser,)
 
     def post(self, request, format=None):
@@ -16,5 +16,20 @@ class OcrView(APIView):
         f = request.data['data']
 
         text = extract_text_from_image(f)
+        print(text)
+        return Response(text)
+
+
+class OcrUrlView(APIView):
+    parser_class = (FileUploadParser,)
+
+    def post(self, request, format=None):
+        print(request.data)
+        if 'data' not in request.data:
+            raise ParseError("Empty content")
+
+        url = request.data['data']
+
+        text = extract_text_from_image_url(url)
         print(text)
         return Response(text)
