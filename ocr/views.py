@@ -16,20 +16,17 @@ class OcrDataView(APIView):
         f = request.data['data']
 
         text = extract_text_from_image(f)
-        print(text)
         return Response(text)
 
 
 class OcrUrlView(APIView):
-    parser_class = (FileUploadParser,)
 
     def post(self, request, format=None):
         print(request.data)
-        if 'data' not in request.data:
+        if 'url' not in request.data:
             raise ParseError("Empty content")
 
-        url = request.data['data']
+        url = request.data['url']
 
         text = extract_text_from_image_url(url)
-        print(text)
         return Response(text)

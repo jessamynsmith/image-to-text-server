@@ -30,7 +30,7 @@ Test API
 
     curl -X POST -F 'data=@path/to/local/file' http://127.0.0.1:8000/api/v1/ocr/data/
     
-    curl -X POST -F 'data=<image_url>' http://127.0.0.1:8000/api/v1/ocr/url/
+    curl -X POST -F 'url=<image_url>' http://127.0.0.1:8000/api/v1/ocr/url/
     
 ### Deployment
 
