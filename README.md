@@ -33,7 +33,7 @@ Test API
     
 ### Deployment
 
-This project is already set up for deployment to Heroku.
+This project is set up for deployment to Heroku.
 
 Make a new Heroku app, and add the following addons:
 
