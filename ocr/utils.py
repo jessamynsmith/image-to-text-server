@@ -8,6 +8,7 @@ def extract_text_from_image(image_file):
     image = Image.open(image_file)
     image.filter(ImageFilter.SHARPEN)
     text = pytesseract.image_to_string(image)
+    text = text.replace('\n', ' ')
     return text
 
 
