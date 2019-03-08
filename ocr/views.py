@@ -22,7 +22,7 @@ class OcrDataView(APIView):
 class OcrUrlView(APIView):
 
     def post(self, request, format=None):
-        print(request.data)
+        print('request data', request.data)
         if 'url' not in request.data:
             raise ParseError("Empty content")
 

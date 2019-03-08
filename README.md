@@ -22,15 +22,19 @@ Set up db:
 
     python manage.py migrate
     
+Set environment variables, e.g.
+
+    export DJANGO_DEBUG=1
+    
 Run server:
 
     python manage.py runserver
     
 Test API
 
-    curl -X POST -F 'data=@path/to/local/file' http://127.0.0.1:8000/api/v1/ocr/data/
+    curl -vk -X POST -F 'data=@path/to/local/file' http://127.0.0.1:8000/api/v1/ocr/data/
     
-    curl -X POST -F 'url=<image_url>' http://127.0.0.1:8000/api/v1/ocr/url/
+    curl -vk -X POST -F 'url=<image_url>' http://127.0.0.1:8000/api/v1/ocr/url/
     
 ### Deployment
 

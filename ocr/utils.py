@@ -18,5 +18,5 @@ def extract_text_from_image_path(image_file_path):
 
 
 def extract_text_from_image_url(image_url):
-    image_data = BytesIO(requests.get(image_url).content)
+    image_data = requests.get(image_url, stream=True).raw
     return extract_text_from_image(image_data)
