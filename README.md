@@ -42,4 +42,4 @@ Make a new Heroku app, and add the following addons:
 Add Heroku buildpacks:
 
     heroku buildpacks:set heroku/python -i 1
-    heroku buildpacks:set https://github.com/matteotiziano/heroku-buildpack-tesseract -i 2
+    heroku buildpacks:set https://github.com/oswellchan/heroku-buildpack-tesseract.git -i 2
