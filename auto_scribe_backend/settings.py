@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-import django_heroku
 from email.utils import formataddr
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +27,7 @@ SECRET_KEY = '48odiyx7mkel8fa6(k-+o9x*k^_lorx%fzhs0%g-llwz2kei%w'
 # Use env setting if available, otherwise make debug false
 DEBUG = bool(int(os.environ.get('DJANGO_DEBUG', '0')))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['auto-scribe.mrgp52bugw.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -151,6 +150,3 @@ EMAIL_USE_TLS = True
 if not EMAIL_HOST_PASSWORD:
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
     EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'emails')
-
-
-django_heroku.settings(locals())
