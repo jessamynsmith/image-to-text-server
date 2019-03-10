@@ -27,8 +27,13 @@ SECRET_KEY = '48odiyx7mkel8fa6(k-+o9x*k^_lorx%fzhs0%g-llwz2kei%w'
 # Use env setting if available, otherwise make debug false
 DEBUG = bool(int(os.environ.get('DJANGO_DEBUG', '0')))
 
-ALLOWED_HOSTS = ['auto-scribe.mrgp52bugw.us-west-2.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'auto-scribe.mrgp52bugw.us-west-2.elasticbeanstalk.com',
+    '127.0.0.1',
+    'localhost'
+]
 
+SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
 CORS_ORIGIN_ALLOW_ALL = True
 
 

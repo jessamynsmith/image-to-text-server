@@ -25,6 +25,7 @@ Set up db:
 Set environment variables, e.g.
 
     export DJANGO_DEBUG=1
+    export DJANGO_ENABLE_SSL=0
     
 Run server:
 
