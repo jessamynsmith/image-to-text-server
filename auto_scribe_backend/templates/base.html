@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{% static 'img/favicon.ico' %}">
+
+  <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+
+<div class="content">
+  {% block content %}{% endblock %}
+</div>
+
+<br/>
+<br/>
+
+  <div class="footer">
+    <div class="center">
+      <div>Bugs? Feature requests? Please
+        <a target="_blank" href="https://github.com/jessamynsmith/auto-scribe-backend/issues">contact us</a>!
+        <span class="mobile_hidden">
+          <a target="_blank" href="https://github.com/jessamynsmith/auto-scribe-backend">Source code</a> here.
+            <br>
+            Like my work? Tip me! <a target="_blank" href="https://www.paypal.me/jessamynsmith">https://www.paypal.me/jessamynsmith</a>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

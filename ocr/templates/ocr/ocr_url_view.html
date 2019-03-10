@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}OCR Image from URL{% endblock %}
+
+{% block content %}
+    
+    {% if image_text %}
+        <h3>Text for Image</h3>
+        
+        <div>{{ image_text }}</div>
+        
+        <br/>
+        
+        <img src="{{ image_url }}" style="max-height: 100px; max-width: 200px;">
+        
+        <br/>
+    {% endif %}
+    
+    <h3>Get Text from Image at URL</h3>
+    
+    <form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <input type="submit" value="Get Text">
+    
+    </form>
+    
+{% endblock %}
