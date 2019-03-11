@@ -6,7 +6,11 @@ import requests
 
 def extract_text_from_image(image_file):
     image = Image.open(image_file)
-    image.filter(ImageFilter.SHARPEN)
+    try:
+        image.filter(ImageFilter.SHARPEN)
+    except ValueError:
+        print('Got an image that failed to sharpen', image_file)
+        pass
     text = pytesseract.image_to_string(image)
     text = text.replace('\n', ' ')
     return text
