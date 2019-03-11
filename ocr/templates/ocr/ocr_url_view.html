@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}OCR Image from URL{% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'ocr/css/ocr.css' %}">
+{% endblock %}
 
 {% block content %}
     
     {% if image_text %}
         <h3>Text for Image</h3>
         
-        <div>{{ image_text }}</div>
+        <button id="copyTextButton" onclick="copyText('imageText', 'copyMessage');">
+            Copy Text
+        </button>
+        <span id="copyMessage" class="hidden">Text copied!</span>
+        
+        <div>
+        <textarea id="imageText" rows="10" cols="80">
+            {{ image_text }}
+        </textarea>
+        </div>
         
         <br/>
         
@@ -27,4 +42,10 @@
     
     </form>
     
+{% endblock %}
+
+{% block extrajs %}
+    
+    <script type="text/javascript" src="{% static 'ocr/js/copy_text.js' %}"></script>
+
 {% endblock %}

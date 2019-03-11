@@ -8,6 +8,8 @@
   <link rel="icon" href="{% static 'icon/favicon.ico' %}">
 
   <title>{% block title %}{% endblock %}</title>
+    
+  {% block extrahead %}{% endblock %}
 
 </head>
 <body>
@@ -32,6 +34,8 @@
 
     </div>
   </div>
+
+{% block extrajs %}{% endblock %}
 
 </body>
 </html>
