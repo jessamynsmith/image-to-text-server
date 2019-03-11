@@ -19,14 +19,14 @@
         <span id="copyMessage" class="hidden">Text copied!</span>
         
         <div>
-        <textarea id="imageText" rows="10" cols="80">
+        <textarea class="fullWidth fullHeight" id="imageText">
             {{ image_text }}
         </textarea>
         </div>
         
         <br/>
         
-        <img src="{{ image_url }}" style="max-height: 180px; max-width: 300px;">
+        <img src="{{ image_url }}" class="fullSizeImg">
         
         <br/>
     {% endif %}
