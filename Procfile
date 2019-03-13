@@ -1,1 +1,1 @@
-web: gunicorn auto_scribe_backend.wsgi:application
+web: gunicorn image_to_text_server.wsgi:application
