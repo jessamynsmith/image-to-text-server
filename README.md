@@ -39,14 +39,6 @@ Test API
     
 ### Deployment
 
-This project is set up for deployment to Heroku.
+This project is set up for deployment to Elastic Beanstalk.
 
-Make a new Heroku app, and add the following addons:
-
-    Heroku Postgres
-    Sendgrid
-
-Add Heroku buildpacks:
-
-    heroku buildpacks:set heroku-community/apt -i 1
-    heroku buildpacks:set heroku/python -i 2
+TODO: Add instructions
