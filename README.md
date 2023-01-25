@@ -21,6 +21,8 @@ Create a virtualenv using Python 3.8 and install dependencies. I recommend getti
     python 3 -m venv venv
     . venv/bin/activate
     pip install -r requirements.txt
+    # If you have issues with ssl on mac:
+    LDFLAGS="-L/usr/local/opt/openssl/lib" CPPFLAGS="-I/usr/local/opt/openssl/include" pip install -r requirements.txt
 
 Set up db:
 
