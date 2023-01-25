@@ -12,7 +12,12 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+from dotenv import load_dotenv
 from email.utils import formataddr
+
+
+load_dotenv()
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -145,8 +150,8 @@ REPLY_TO = (
 )
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
-EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
+EMAIL_HOST_USER = "apikey"
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
 EMAIL_USE_TLS = True
 
 if not EMAIL_HOST_PASSWORD:
