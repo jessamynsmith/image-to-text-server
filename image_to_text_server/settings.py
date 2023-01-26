@@ -33,6 +33,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = bool(int(os.environ.get('DJANGO_DEBUG', '0')))
 
 ALLOWED_HOSTS = ['127.0.0.1', '165.227.42.38']
+CSRF_TRUSTED_ORIGINS = ['http://165.227.42.38']
 
 SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
 CORS_ORIGIN_ALLOW_ALL = True
