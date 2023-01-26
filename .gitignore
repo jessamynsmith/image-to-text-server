@@ -31,7 +31,7 @@ nosetests.xml
 .idea
 .idea/*
 
-venv/*
+venv*/*
 
 emails/*
 
