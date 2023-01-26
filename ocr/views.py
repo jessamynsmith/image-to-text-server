@@ -45,6 +45,7 @@ class OcrUrlView(FormView):
     def form_valid(self, form):
         self.image_url = form.cleaned_data.get('url')
         self.image_text = extract_text_from_image_url(self.image_url)
+        self.ocr_attempted = True
 
     def form_invalid(self, form):
         print('Invalid form', form.errors)
@@ -54,4 +55,5 @@ class OcrUrlView(FormView):
         context_data = super().get_context_data(**kwargs)
         context_data['image_url'] = getattr(self, 'image_url', None)
         context_data['image_text'] = getattr(self, 'image_text', None)
+        context_data['ocr_attempted'] = getattr(self, 'ocr_attempted', None)
         return context_data
