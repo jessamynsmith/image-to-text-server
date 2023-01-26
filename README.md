@@ -42,7 +42,7 @@ Test API
     
 ### Deployment
 
-This project is set up for deployment to Elastic Beanstalk.
+##### Elastic Beanstalk.
 
 Initialize the repository:
 
@@ -55,4 +55,7 @@ Set up SSH:
 Create environment:
     
     eb create image-to-text-env
-    
+
+##### Ubuntu
+
+    sudo apt install libpng-dev libtesseract-dev libtesseract-ocr

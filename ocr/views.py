@@ -46,6 +46,10 @@ class OcrUrlView(FormView):
         self.image_url = form.cleaned_data.get('url')
         self.image_text = extract_text_from_image_url(self.image_url)
 
+    def form_invalid(self, form):
+        print('Invalid form', form.errors)
+        return super().form_invalid(form)
+
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         context_data['image_url'] = getattr(self, 'image_url', None)
