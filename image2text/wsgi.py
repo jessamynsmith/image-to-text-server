@@ -1,5 +1,5 @@
 """
-WSGI config for image_to_text_server project.
+WSGI config for image2text project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'image_to_text_server.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'image2text.settings')
 
 application = get_wsgi_application()
