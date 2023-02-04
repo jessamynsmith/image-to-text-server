@@ -62,7 +62,7 @@ Ssh into Ubuntu server.
 
 Install native dependencies:
 
-    sudo apt install libpng-dev libtesseract-dev libtesseract-ocr
+    sudo apt install libpng-dev libtesseract-dev libtesseract-ocr redis-server
 
 Get source code:
 
