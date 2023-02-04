@@ -1,0 +1,60 @@
+# /etc/nginx/sites-available/image2text
+
+upstream image2text {
+    server unix:/home/django/image2text.socket fail_timeout=0;
+}
+
+server {
+    #listen 80 default_server;
+    #listen [::]:80 default_server ipv6only=on;
+
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+
+    client_max_body_size 4G;
+    server_name image2text.jessamynsmith.ca;
+
+    keepalive_timeout 5;
+
+    location /media  {
+        alias /home/django/image2text/mediafiles;
+    }
+
+    location /favicon.ico {
+        alias /home/django/image2text/staticfiles/img/favicon.ico;
+    }
+
+    location /static {
+        alias /home/django/image2text/staticfiles;
+    }
+
+    location / {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $host;
+            proxy_redirect off;
+            proxy_buffering off;
+
+            proxy_pass http://image2text;
+    }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/image2text.jessamynsmith.ca/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/image2text.jessamynsmith.ca/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = image2text.jessamynsmith.ca) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name image2text.jessamynsmith.ca;
+    return 404; # managed by Certbot
+
+
+}

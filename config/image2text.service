@@ -1,0 +1,22 @@
+# /etc/systemd/system/image2text.service
+
+[Unit]
+Description=Gunicorn daemon for image2text
+Before=nginx.service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/django/image2text
+ExecStart=/home/django/image2text/venv/bin/gunicorn --access-logfile - \
+--capture-output --enable-stdio-inheritance \
+--error-logfile /home/django/log/error_image2text.log --name=image2text \
+--pythonpath=/home/django/image2text --bind unix:/home/django/image2text.socket \
+--config /etc/gunicorn.d/gunicorn.py image2text.wsgi:application
+Restart=always
+SyslogIdentifier=image2text
+User=django
+Group=django
+
+
+[Install]
+WantedBy=multi-user.target
