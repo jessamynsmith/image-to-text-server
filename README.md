@@ -58,4 +58,45 @@ Create environment:
 
 ##### Ubuntu
 
+Ssh into digital ocean droplet.
+
+Install native dependencies:
+
     sudo apt install libpng-dev libtesseract-dev libtesseract-ocr
+
+Get source code:
+
+    git clone git@github.com:jessamynsmith/image-to-text-server.git image2text
+
+Copy gunicorn service file into system folder:
+
+    sudo cp config/image2text.service /etc/systemd/system/image2text.service
+
+After service config change:
+
+    sudo systemctl daemon-reload
+
+Restart image2text service:
+
+    sudo systemctl restart image2text
+
+View gunicorn logs:
+
+    sudo journalctl -u image2text.service --no-pager -f
+
+View Django logs:
+
+    tail -f /home/django/log/error_image2text.log 
+
+Copy nginx config into nginx directory and create symlink:
+
+    sudo cp config/image2text /etc/nginx/sites-available/image2text
+    sudo ln -s /etc/nginx/sites-available/image2text /etc/nginx/sites-enabled/image2text
+
+Set up SSL:
+
+    sudo certbot --nginx -d image2text.jessamynsmith.ca
+
+Restart nginx:
+
+    sudo systemctl restart nginx
