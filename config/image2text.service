@@ -12,10 +12,12 @@ WorkingDirectory=/home/django/image2text
 #--error-logfile /home/django/log/image2text.log --name=image2text \
 #--pythonpath=/home/django/image2text --bind unix:/home/django/image2text.socket \
 #--config /etc/gunicorn.d/gunicorn.py image2text.wsgi:application
-ExecStart=/home/django/image2text/venv/bin/daphne --access-log /home/django/log/image2text.log \
+ExecStart=/home/django/image2text/venv/bin/daphne \
 --unix-socket /home/django/image2text.socket \
 image2text.asgi:application
 Restart=always
+StandardOutput=syslog
+StandardError=syslog
 SyslogIdentifier=image2text
 User=django
 Group=django
