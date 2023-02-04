@@ -58,7 +58,7 @@ Create environment:
 
 ##### Ubuntu
 
-Ssh into digital ocean droplet.
+Ssh into Ubuntu server.
 
 Install native dependencies:
 
