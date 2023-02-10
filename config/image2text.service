@@ -12,8 +12,6 @@ ExecStart=/home/django/image2text/venv/bin/uvicorn \
 --workers 3 \
 image2text.asgi:application
 Restart=always
-StandardOutput=syslog
-StandardError=syslog
 SyslogIdentifier=image2text
 User=django
 Group=django
