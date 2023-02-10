@@ -7,8 +7,9 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/django/image2text
-ExecStart=/home/django/image2text/venv/bin/daphne \
---unix-socket /home/django/image2text.socket \
+ExecStart=/home/django/image2text/venv/bin/uvicorn \
+--uds /home/django/image2text.socket \
+--workers 3 \
 image2text.asgi:application
 Restart=always
 StandardOutput=syslog
