@@ -1,7 +1,7 @@
 # /etc/systemd/system/image2text.service
 
 [Unit]
-Description=Gunicorn daemon for image2text
+Description=Uvicorn daemon for image2text
 Before=nginx.service
 After=network.target
 
@@ -10,6 +10,7 @@ WorkingDirectory=/home/django/image2text
 ExecStart=/home/django/image2text/venv/bin/uvicorn \
 --uds /home/django/image2text.socket \
 --workers 3 \
+--lifespan on \
 image2text.asgi:application
 Restart=always
 SyslogIdentifier=image2text
